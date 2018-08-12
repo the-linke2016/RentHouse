@@ -1,0 +1,27 @@
+{
+	"listData": [{
+		"itemUrl": "new_rentInfo.html",
+		"imgSrc": "img/1.jpg",
+		"description": "个人出租宾馆式单间独立卫生间 风和园1厅 主卧 朝南",
+		"rentType": "合租",
+		"schoolType": "安大",
+		"priceType": "每月1000元",
+		"houseType": "3室1厅1卫"
+	}, {
+		"itemUrl": "new_rentInfo.html",
+		"imgSrc": "img/2.jpg",
+		"description": "个人出租宾馆式单间独立卫生间 风和园1厅 主卧 朝南",
+		"rentType": "整租",
+		"schoolType": "合工大",
+		"priceType": "每月1200元",
+		"houseType": "2室1厅1卫"
+	}, {
+		"itemUrl": "new_rentInfo.html",
+		"imgSrc": "img/3.jpg",
+		"description": "个人出租宾馆式单间独立卫生间 风和园1厅 主卧 朝南",
+		"rentType": "合租",
+		"schoolType": "中科大",
+		"priceType": "每月1500元",
+		"houseType": "2室1厅2卫"
+	}]
+}

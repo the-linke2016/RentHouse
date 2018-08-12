@@ -1,0 +1,315 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    position: relative;
+}
+
+#myCarousel {
+    margin: 0 auto;
+    height: 220px;
+}
+
+.item {
+    width: 100%;
+}
+
+#info {
+    margin: 0 auto;
+    width: 95%;
+}
+
+.infoTitle {
+    margin: 0 2%;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+hr {
+    height: 1px;
+    border: none;
+    border-top: 1px solid lightgray;
+}
+
+.mainInfo {
+    padding-top: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.mainInfo>div {
+    height: 40px;
+    color: red;
+    font-size: 18px;
+}
+
+.detailInfo {
+    margin-top: 15px;
+}
+
+.detailItem {
+    color: rgb(179, 171, 171);
+    font-size: 17px;
+}
+
+.detail {
+    font-size: 15px;
+}
+
+.detailItem_1 {
+    color: rgb(179, 171, 171);
+    font-size: 20px;
+}
+
+.words {
+    margin: 0 auto;
+    padding-top: 10px;
+    width: 95%;
+    margin-bottom: 40px;
+}
+
+#foot {
+    width: 100%;
+    height: 40px;
+    background-color: #FC3;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#foot a {
+    color: #FFF;
+    text-decoration: none
+}
+
+#footer {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+}
+
+.menu_1 {
+    width: 50%;
+    height: 40px;
+    text-align: center;
+    background-color: #F30;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFF
+}
+
+.menu_1 a {
+    color: #FFF;
+    text-decoration: none
+}
+
+.menu_1 a:active {
+    color: #CCC
+}
+
+.menu_2 {
+    width: 50%;
+    height: 40px;
+    text-align: center;
+    background-color: #F90;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFF
+}
+
+.menu_2 a {
+    color: #FFF;
+    text-decoration: none
+}
+
+.menu_2 a:active {
+    color: #CCC
+}
+
+.searchInput {
+    margin: 2% 0;
+}
+
+#select {
+    position: relative;
+    display: flex;
+    width: 100%;
+    float: right;
+}
+
+a:link,
+a:active,
+:visited,
+:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.list {
+    display: flex;
+    margin: 10px;
+    width: 95%;
+    align-items: center;
+}
+
+.list>div {
+    display: inline;
+}
+
+.description {
+    padding-left: 5px;
+    font-size: 20px;
+}
+
+.hidden,
+.rentTypeHidden,
+.schoolTypeHidden,
+.priceTypeHidden,
+.houseTypeHidden {
+    display: none;
+}
+
+#houseInfo {
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.houseInfoTitle {
+    font-size: 25px;
+    font-family: "microsoft yahei";
+}
+
+.tip {
+    color: red;
+    font-size: 15px;
+    font-family: "microsoft yahei";
+}
+
+#upload {
+    padding: 5px 10px;
+    background-color: ghostwhite;
+}
+
+#area>input {
+    margin: 5px auto;
+}
+
+#buttons {
+    padding: 2px 5px;
+    border: 1px solid gainsboro;
+}
+
+.options {
+    background-color: skyblue;
+}
+
+.display {
+    width: 95%;
+    margin: 0 auto;
+    padding: 20px;
+    height: 650px;
+    background-color: tomato;
+}
+
+#about {
+    width: 95%;
+    height: 220px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#about>span {
+    font-size: 25px;
+    font-family: "microsoft yahei";
+}
+
+#landlordName {
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+#phone {
+    margin-bottom: 130px;
+}
+
+#submit {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+#submit>button {
+    width: 30%;
+    font-weight: bold;
+    line-height: auto;
+}
+
+/*#topBar {
+    margin: 5px;
+    padding: 0;
+}*/
+
+/********************************************/
+
+#myPub {
+    padding-bottom: 40px;
+}
+
+ul {
+    list-style: none;
+    padding: 0
+}
+
+li {
+    position: relative;
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    background: #fff;
+}
+
+.item-check,
+#selectOption {
+    display: flex;
+    align-items: center;
+}
+
+#bottom {
+    display: flex;
+    margin-top: 20px;
+}
+
+.item-check-btn,
+.remove {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.check {
+    background: #EE7A23;
+    border-color: #EE7A23;
+    border-width: 2px;
+}
+
+#removeAll {
+    position: absolute;
+    right: 10px;
+}

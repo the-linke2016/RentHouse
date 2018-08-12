@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	    crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	    crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+	<title>我的房源</title>
+</head>
+
+<body>
+	<div id="topBar" class="container-fluid">
+		<div class="row">
+			<a type="button" class="btn btn-default btn-lg col-xs-3 col-sm-3" href="javascript:history.back(-1)">
+				<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> Back
+			</a>
+		</div>
+	</div>
+	<div id="myPub">
+		<ul>
+			<li v-for="(item, index) in items">
+				<div class="item-check">
+					<a href="javascript:void 0" class="item-check-btn" v-bind:class="{'check':item.checked}" v-on:click="selecteItem(item)"></a>
+					<div class="list" v-on:click="toDetail(item)">
+						<div>
+							<img :src="item.imgSrc" style="max-width: 100%; height: auto;">
+						</div>
+						<span class="description">{{item.description}}</span>
+					</div>
+					<a href="javascript:void 0" class="remove" v-on:click="deleteItem(item)">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					</a>
+				</div>
+			</li>
+		</ul>
+
+		<div id="bottom">
+			<div id="selectOption">
+				<a href="javascript:void 0" class="item-check-btn" v-bind:class="{'check':selectAllFlag}" v-on:click="selectAll()"></a>
+				<span class="selectAllText">{{ selectAllText }}</span>
+			</div>
+			<div id="removeAll">
+				<a href="javascript:void 0" class="remove" v-on:click="deleteSome()">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				</a>
+				<span>批量删除</span>
+			</div>
+		</div>
+	</div>
+	<div id="footer" class=".container-fluid">
+		<div class="row">
+			<div class="menu_1 col-xs-6">
+				<a href="landlord.html">发布房源</a>
+			</div>
+			<div class="menu_2 col-xs-6">
+				<a href="myPub.html">我的房源</a>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	var vm = new Vue({
+		el: '#myPub',
+		data: {
+			items: [],
+			selectedRentType: '',
+			selectedSchoolType: '',
+			selectedPriceType: '',
+			selectedHouseType: '',
+			selectAllText: '全选',
+			selectAllFlag: 0,
+			validCache: []
+		},
+		mounted: function () {
+			this.$nextTick(function () {
+				vm.getList();
+			})
+		},
+		methods: {
+			getList: function () {
+				var that = this;
+				this.$http.get("./data/landlord1.json").then(function (res) {
+					that.items = res.data.listData;
+				});
+			},
+			selecteItem: function (item) {
+				if (typeof item.checked == 'undefined') {
+					Vue.set(item, 'checked', true);
+				} else {
+					item.checked = !item.checked;
+				}
+			},
+			selectAll: function () {
+				this.selectAllFlag = !(this.selectAllFlag);
+				var that = this;
+				this.items.forEach(function (item, index) {
+					if (typeof item.checked == 'undefined') {
+						that.$set(item, "checked", that.selectAllFlag);
+					} else {
+						item.checked = that.selectAllFlag;
+					}
+				});
+				if (this.selectAllFlag) {
+					this.selectAllText = "取消全选";
+				} else {
+					this.selectAllText = "全选";
+				}
+			},
+			deleteItem: function (item) {
+				var index = this.items.indexOf(item);
+				this.items.splice(index, 1);
+			},
+			deleteSome: function () {
+				for (var i = this.items.length - 1; i >= 0; i--) {
+					var item = this.items[i];
+					if (item.checked) {
+						this.items.splice(i, 1);
+					}
+				}
+				if (this.selectAllFlag) {
+					this.selectAll();
+				}
+			},
+			toDetail: function (item) {
+				window.location.href = item.itemUrl;
+			}
+		}
+	});
+</script>
+
+</html>

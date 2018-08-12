@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+		<script src="js/FD.js"></script>
+		<script src="js/message.js"></script>
+		<script>
+		</script>
+		<title>新房上架</title>
+	</head>
+
+	<body>
+		<div id="topBar" class="container-fluid">
+			<div class="row">
+				<a type="button" class="btn btn-default btn-lg col-xs-3 col-sm-3" href="javascript:history.back(-1)">
+					<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> Back
+				</a>
+			</div>
+		</div>
+		<div id="houseInfo" style="height:100%;width:100%">
+			<form id="app" name="form" action="" onsubmit="return checkForm()">
+				<div id="upload" class="form-group">
+					<label for="uploadImg">上传房屋图片</label>
+					<input type="file" id="uploadImg" class="center-block" multiple required>
+				</div>
+				<span class="tip">带*为必填选项</span>
+				<br>
+				<input type="radio" id="type1" name="rentType" value="找合租">
+				<label for="type1">找合租</label>
+				<br>
+				<input type="radio" id="type2" name="rentType" value="找整租">
+				<label for="type2">找整租</label>
+				<br>
+				<br>
+				<div id="buttons" class="container-fluid">
+
+					<button id="plotBtn" type="button" class="options btn btn-default btn-sm col-xs-4">小区名称*</button>
+					<button id="floorBtn" type="button" class="options btn btn-default btn-sm col-xs-4">楼层</button>
+					<button id="areaBtn" type="button" class="options btn btn-default btn-sm col-xs-4">面积</button>
+
+					<button id="directionBtn" type="button" class="options btn btn-default btn-sm col-xs-4">朝向</button>
+					<button id="houseTypeBtn" type="button" class="options btn btn-default btn-sm col-xs-4">厅室*</button>
+					<button id="elevatorBtn" type="button" class="options btn btn-default btn-sm col-xs-4">电梯</button>
+
+					<button id="parkingBtn" type="button" class="options btn btn-default btn-sm col-xs-4">车位</button>
+					<button id="priceBtn" type="button" class="options btn btn-default btn-sm col-xs-4">月租金*</button>
+					<button id="equipmentBtn" type="button" class="options btn btn-default btn-sm col-xs-4">房屋配置</button>
+
+					<button id="demandBtn" type="button" class="options btn btn-default btn-sm col-xs-4">出租要求</button>
+					<button id="priceIncludeBtn" type="button" class="options btn btn-default btn-sm col-xs-4">租金包含费用</button>
+					<button id="identityBtn" type="button" class="options btn btn-default btn-sm col-xs-4">您的身份</button>
+				</div>
+				<div id="plot" class="hidden display">
+					<input type="text" id="text1" required placeholder="填写小区名称">
+					<button id="plotConfirm" type="button" class="hidden btn btn-default btn-sm" onClick="ad1()">OK</button>
+				</div>
+				<div id="floor" class="hidden display">
+					<input type="text" id="text2" name="name" placeholder="填写所在楼层">
+					<button id="floorConfirm" type="button" class="hidden confirm btn btn-default btn-sm" onclick="ad2()">OK</button>
+				</div>
+				<div id="area" class="hidden display"> 房屋面积 :
+					<input type="text" id="text3" name="name">
+					<br> 单间面积 :
+					<input type="text" id="text3_1" name="name">
+					<br>
+					<button id="areaConfirm" type="button" class="hidden confirm btn btn-default btn-sm" onclick="ad3()">OK</button>
+				</div>
+				<div id="direction" class="hidden display"> 朝向 :
+					<input type="text" id="text4" name="name display">
+					<button id="directionConfirm" type="button" class="hidden confirm btn btn-default btn-sm" onclick="ad4()">OK</button>
+				</div>
+				<div id="houseType" class="hidden display">
+					<input type="text" name="name display" id="text5" required placeholder="几室几厅几卫">
+					<button id="houseTypeConfirm" onclick="ad5()" type="button" class="hidden confirm btn btn-default btn-sm">OK</button>
+				</div>
+				<div id="elevator" class="hidden display">
+					<div align="left">
+						<label>
+						<input type="radio" name="电梯" id="电梯_0"> 有</lab// <label>
+						<input type="radio" name="电梯" id="电梯_1"> 无</label>
+					</div>
+					<br />
+					<button id="elevatorConfirm" type="button" class="hidden confirm btn btn-default btn-sm" onclick="ad6()">OK</button>
+					<br />
+				</div>
+				<div id="parking" class="hidden display">
+					<div align="left">
+						<label>
+						<input type="radio" name="车位" id="车位_0" /> 有</label>
+						<br />
+						<label>
+						<input type="radio" name="车位" id="车位_1" /> 无</label>
+					</div>
+					<br />
+					<button id="parkingConfirm" type="button" class="hidden confirm btn btn-default btn-sm" onclick="ad7()">OK</button>
+				</div>
+				<div id="price" class="hidden display">
+					<input type="text" name="name" id="monthPrice" v-model="price" required placeholder="填写月租金">
+					<br>
+					<br>
+					<input type="text" name="name" id="text8_1" placeholder="例如：押一付一">
+					<br>
+					<br>
+					<button id="priceConfirm" type="button" class="hidden confirm btn btn-default btn-sm" onclick="ad8()">OK</button>
+				</div>
+				<div id="equipment" class="hidden display">
+					<div align="left">
+						<label>
+						<input type="checkbox" name="房屋配置" value="复选框" id="房屋配置_0"> 宽带</label>
+						<br />
+						<label>
+						<input type="checkbox" name="房屋配置" value="复选框" id="房屋配置_1"> 床</label>
+						<br />
+						<label>
+						<input type="checkbox" name="房屋配置" value="复选框" id="房屋配置_2"> 桌椅</label>
+						<br />
+						<label>
+						<input type="checkbox" name="房屋配置" value="复选框" id="房屋配置_3"> 衣柜</label>
+						<br />
+						<label>
+						<input type="checkbox" name="房屋配置" value="复选框" id="房屋配置_4"> 沙发</label>
+						<br />
+						<label>
+						<input type="checkbox" name="房屋配置" value="复选框" id="房屋配置_5"> 电视</label>
+						<br />
+						<label>
+						<input type="checkbox" name="房屋配置" value="复选框" id="房屋配置_6"> 空调</label>
+						<br />
+						<label>
+						<input type="checkbox" name="房屋配置" value="复选框" id="房屋配置_7"> 洗衣机</label>
+						<br />
+						<label>
+						<input type="checkbox" name="房屋配置" value="复选框" id="房屋配置_8"> 冰箱</label>
+						<br />
+						<label>
+						<input type="checkbox" name="房屋配置" value="复选框" id="房屋配置_9"> 暖气</label>
+						<br />
+						<label>
+						<input type="checkbox" name="房屋配置" value="复选框" id="房屋配置_10"> 热水器</label>
+						<br />
+						<label>
+						<input type="checkbox" name="房屋配置" value="复选框" id="房屋配置_11"> 燃气灶</label>
+						<br />
+						<label>
+						<input type="checkbox" name="房屋配置" value="复选框" id="房屋配置_12"> 电磁炉</label>
+						<br />
+						<label>
+						<input type="checkbox" name="房屋配置" value="复选框" id="房屋配置_13"> 独立卫生间</label>
+						<br />
+						<label>
+						<input type="checkbox" name="房屋配置" value="复选框" id="房屋配置_14"> 阳台</label>
+						<br /> 补充 :
+						<input type="text" name="name">
+					</div>
+					<br>
+					<button id="equipmentConfirm" type="button" class="hidden confirm btn btn-default btn-sm" onclick="ad9()">OK</button>
+				</div>
+				<div id="demand" class="hidden display">
+					<div align="left">
+						<label>
+						<input type="checkbox" name="出租要求" value="复选框" id="出租要求_0" /> 只限女生</label>
+						<br />
+						<label>
+						<input type="checkbox" name="出租要求" value="复选框" id="出租要求_1" /> 只限男生</label>
+						<br />
+						<label>
+						<input type="checkbox" name="出租要求" value="复选框" id="出租要求_2" /> 男女不限</label>
+						<br />
+						<label>
+						<input type="checkbox" name="出租要求" value="复选框" id="出租要求_3" /> 禁止养宠物</label>
+						<br />
+						<label>
+						<input type="checkbox" name="出租要求" value="复选框" id="出租要求_4" /> 作息正常</label>
+						<br />
+						<label>
+						<input type="checkbox" name="出租要求" value="复选框" id="出租要求_5" /> 禁烟</label>
+						<br /> 补充 :
+						<input type="text" name="name">
+					</div>
+					<br>
+					<button id="demandConfirm" type="button" class="hidden confirm btn btn-default btn-sm" onclick="ad10()">OK</button>
+					<br />
+				</div>
+				<div id="priceInclude" class="hidden display">
+					<div align="left">
+						<label>
+						<input type="checkbox" name="租金所包含费用" value="复选框" id="租金所包含费用_0" /> 物业费</label>
+						<br />
+						<label>
+						<input type="checkbox" name="租金所包含费用" value="复选框" id="租金所包含费用_1" /> 水费</label>
+						<br />
+						<label>
+						<input type="checkbox" name="租金所包含费用" value="复选框" id="租金所包含费用_2" /> 电费</label>
+						<br />
+						<label>
+						<input type="checkbox" name="租金所包含费用" value="复选框" id="租金所包含费用_3" /> 燃气费</label>
+						<br />
+						<label>
+						<input type="checkbox" name="租金所包含费用" value="复选框" id="租金所包含费用_4" /> 宽带费</label>
+						<br />
+						<label>
+						<input type="checkbox" name="租金所包含费用" value="复选框" id="租金所包含费用_5" /> 取暖费</label>
+						<br />
+						<label>
+						<input type="checkbox" name="租金所包含费用" value="复选框" id="租金所包含费用_6" /> 有限电视费</label>
+						<br />
+					</div>
+					<button id="priceIncludeConfirm" type="button" class="hidden confirm btn btn-default btn-sm" onclick="ad11()">OK</button>
+					<br />
+				</div>
+				<div id="identity" class="hidden display">
+					<div align="left">
+						<label>
+						<input type="radio" name="您的身份" value="单选" id="您的身份_0" /> 第一房东</label>
+						<br />
+						<label>
+						<input type="radio" name="您的身份" value="单选" id="您的身份_1" /> 第二房东</label>
+						<br />
+						<label>
+						<input type="radio" name="您的身份" value="单选" id="您的身份_2" /> 中介公司</label>
+						<br />
+						<input type="text" name="name" placeholder="填写中介费用">
+					</div>
+					<br>
+					<button id="identityConfirm" type="button" class="hidden confirm btn btn-default btn-sm" onclick="ad12()">OK</button>
+					<br />
+				</div>
+		</div>
+		<br>
+		<br>
+		<div id="about">
+				<input type="text" id="contact" class="form-control" placeholder="联系人姓名" required>
+			<br>
+				<input type="tel" id="tel" class="form-control" placeholder="联系人电话" required>
+			<br>
+			<textarea class="form-control" id="words" rows="4" placeholder="房东有话说..." required></textarea>
+			<br>
+		</div>
+		<div id="submit">
+			<button type="submit" class="btn btn-default">确认发布</button>
+		</div>
+		</form>
+		<div id="footer" class=".container-fluid">
+			<div class="row">
+				<div class="menu_1 col-xs-6">
+					<a href="landlord.html">发布房源</a>
+				</div>
+				<div class="menu_2 col-xs-6">
+					<a href="myPub.html">我的房源</a>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	$('.rent').on('click', function() {
+		$('.rent').removeClass('active');
+		$(this).addClass('active');
+	});
+	$('.options').on('click', function() {
+		$('.options').removeClass("active");
+		$('.display').addClass("hidden");
+		$(this).addClass("active");
+		$('.confirm').removeClass("hidden");
+		var optionsBtnId = $(this).attr('id');
+		var optionsId = optionsBtnId.substring(0, optionsBtnId.length - 3);
+		$("#" + optionsId).removeClass("hidden");
+	});
+	$('.confirm').on('click', function() {
+		$(this).addClass("hidden");
+		var confirmBtnId = $(this).attr('id');
+		var optionsId = confirmBtnId.substring(0, confirmBtnId.length - 7);
+		var optionsBtnId = optionsId + "Btn";
+		$("#" + optionsId).addClass("hidden");
+		$("#" + optionsBtnId).removeClass("active");
+	});
+	$('#plotBtn').on('click', function() {
+		$('#plot').removeClass("hidden");
+		$('#plotConfirm').removeClass("hidden");
+	});
+	$('#plotConfirm').on('click', function() {
+		$(this).addClass("hidden");
+		$("#plot").addClass("hidden");
+		$('#plotBtn').removeClass("active");
+		$('#plotBtn').text("修改小区*");
+	});
+
+	function checkForm() {
+		var rentType = $("input[name='rentType']:checked").val();
+		var plotNmae = $('#plot input').val();
+		var houseType = $('#houseType input').val();
+		var monthPrice = $('#monthPrice').val();
+		var contact = $('#contact').val();
+		var tel = $('#tel').val();
+		var words = $('#words').val();
+		confirm(rentType + plotNmae + monthPrice + contact + tel + words);
+		return true;
+	}
+</script>
