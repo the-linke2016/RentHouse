@@ -108,7 +108,7 @@
 			<div class="row">
 				<div class="col-xs-6 col-sm-6">
 					<span class="detailItem">房东身份&nbsp;</span>
-					<span class="detail">{{ FDID }}</span>
+					<span class="detail">{{ fdid }}</span>
 				</div>
 				<div class="col-xs-6 col-sm-6">
 					<span class="detailItem">中介费用&nbsp;</span>
@@ -135,11 +135,7 @@
 			<div class="words">
 				<textarea class="form-control" rows="4" readonly>房东有话说...</textarea>
 			</div>
-			<br>
-
-			<div id="foot">
-				<a href="tel:18324746936">联系房东</a>
-			</div>
+			
 </body>
 <script>
 	var app = new Vue({
@@ -159,7 +155,7 @@
 			car: '有',
 			elevator: '无',
 			limite: '暂无数据',
-			FDID: '中介场所',
+			fdid: '中介场所',
 			cost: '',
 			need: '物业费 宽带费',
 			configuration: '床 衣柜 空调 热水器 桌椅倒萨大师的共和国海关合格合格后回购湖广会馆刚刚好',

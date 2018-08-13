@@ -5,23 +5,35 @@
 		"description": "个人出租宾馆式单间独立卫生间 风和园1厅 主卧 朝南",
 		"rentType": "合租",
 		"schoolType": "安大",
-		"priceType": "每月1000元",
-		"houseType": "3室1厅1卫"
+		"price": "1000元/月",
+		"priceType": "A",
+		"houseType": "3室1厅1卫",
+		"communityType":"太宁花园",
+		"directionType":"朝南",
+		"demandType":"男女不限，禁止养宠物"
 	}, {
 		"itemUrl": "rentInfo.html",
 		"imgSrc": "img/2.jpg",
 		"description": "个人出租宾馆式单间独立卫生间 风和园1厅 主卧 朝南",
 		"rentType": "整租",
 		"schoolType": "合工大",
-		"priceType": "每月1200元",
-		"houseType": "2室1厅1卫"
+		"price": "1200元/月",
+		"priceType": "B",
+		"houseType": "2室1厅1卫",
+		"communityType":"翰林雅居",
+		"directionType":"朝南",
+		"demandType":"男女不限，禁止养宠物"
 	}, {
 		"itemUrl": "rentInfo.html",
 		"imgSrc": "img/3.jpg",
 		"description": "个人出租宾馆式单间独立卫生间 风和园1厅 主卧 朝南",
 		"rentType": "合租",
 		"schoolType": "中科大",
-		"priceType": "每月1500元",
-		"houseType": "2室1厅2卫"
+		"price": "1500元/月",
+		"priceType": "C",
+		"houseType": "2室1厅2卫",
+		"communityType":"国泰苑",
+		"directionType":"南北朝向",
+		"demandType":"仅限女生，禁止养宠物"
 	}]
 }

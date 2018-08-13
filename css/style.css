@@ -12,7 +12,7 @@ body {
     height: 220px;
 }
 
-.item {
+.item {z
     width: 100%;
 }
 
@@ -169,7 +169,24 @@ a:active,
 
 .description {
     padding-left: 5px;
-    font-size: 20px;
+    font-size: 17px;
+}
+
+.description_1 {
+    padding-left: 5px;
+    font-size: 15px;
+}
+
+.description_2 {
+    padding-left: 5px;
+    font-size: 13px;
+	color: #999999;
+}
+
+.description_3 {
+    padding-left: 35px;
+    font-size: 15px;
+	color: red;
 }
 
 .hidden,
@@ -212,7 +229,9 @@ a:active,
 }
 
 .options {
-    background-color: skyblue;
+    background-color: #CCCCCC;
+	border: 1px white solid;
+	font-weight: bold;
 }
 
 .display {
@@ -221,6 +240,7 @@ a:active,
     padding: 20px;
     height: 650px;
     background-color: tomato;
+    text-align: center;
 }
 
 #about {
@@ -256,8 +276,15 @@ a:active,
 }
 
 /*#topBar {
-    margin: 5px;
-    padding: 0;
+    width: 100%;
+    background-color: lightcyan;
+    position: fixed;
+    top: 0;
+}
+
+#topBar a {
+	background-color: rgba(0,0,0,0);
+	border: none;
 }*/
 
 /********************************************/
