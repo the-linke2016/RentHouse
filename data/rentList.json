@@ -8,9 +8,9 @@
 		"price": "1000元/月",
 		"priceType": "A",
 		"houseType": "3室1厅1卫",
-		"communityType":"太宁花园",
-		"directionType":"朝南",
-		"demandType":"男女不限，禁止养宠物"
+		"communityType": "太宁花园",
+		"directionType": "朝南",
+		"demandType": "男女不限，禁止养宠物"
 	}, {
 		"itemUrl": "rentInfo.html",
 		"imgSrc": "img/2.jpg",
@@ -20,9 +20,9 @@
 		"price": "1200元/月",
 		"priceType": "B",
 		"houseType": "2室1厅1卫",
-		"communityType":"翰林雅居",
-		"directionType":"朝南",
-		"demandType":"男女不限，禁止养宠物"
+		"communityType": "翰林雅居",
+		"directionType": "朝南",
+		"demandType": "男女不限，禁止养宠物"
 	}, {
 		"itemUrl": "rentInfo.html",
 		"imgSrc": "img/3.jpg",
@@ -32,8 +32,8 @@
 		"price": "1500元/月",
 		"priceType": "C",
 		"houseType": "2室1厅2卫",
-		"communityType":"国泰苑",
-		"directionType":"南北朝向",
-		"demandType":"仅限女生，禁止养宠物"
+		"communityType": "国泰苑",
+		"directionType": "南北朝向",
+		"demandType": "仅限女生，禁止养宠物"
 	}]
 }

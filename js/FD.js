@@ -19,7 +19,7 @@ function ad2() {
 function ad3() {
     var pw1 = document.getElementById("text3").value;
     var pw2 = document.getElementById("text3_1").value;
-    if (pw1 != null || pw2 != null) {
+    if (pw1 || pw2) {
         document.getElementById("areaBtn").style.backgroundColor = "springgreen";
     }
 }

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	    crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	    crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+	<title>二手交易平台</title>
+</head>
+
+<body>
+	<div id="topBar" class="container-fluid">
+		<div class="row">
+			<a type="button" class="btn btn-default btn-lg col-xs-3 col-sm-3" href="index.html">
+				<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> 首页
+			</a>
+		</div>
+	</div>
+	<div id="mainContent">
+		<ul id="myTab" class="nav nav-tabs container-fluid">
+			<li class="active col-xs-4 col-sm-4">
+				<a href="#all" data-toggle="tab">全部</a>
+			</li>
+			<li class="col-xs-4 col-sm-4">
+				<a href="#buy" data-toggle="tab">二手买卖</a>
+			</li>
+			<li class="col-xs-4 col-sm-4">
+				<a href="#lease" data-toggle="tab">物品租赁</a>
+			</li>
+		</ul>
+		<div id="myTabContent" class="tab-content">
+			<div class="tab-pane fade in active" id="all">
+				<div class="marketItem" v-for="allItem in allItems">
+					<p>
+						{{allItem.description}}
+					</p>
+					<div class="imgGroup">
+						<img v-for="imgUrl in allItem.imgUrls" :src="imgUrl" onclick="window.open(this.src);">
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="buy">
+				<div class="marketItem" v-for="allItem in allItems" v-show="(allItem.type=='buy')?true:false">
+					<p>
+						{{allItem.description}}
+					</p>
+					<div class="imgGroup">
+						<img v-for="imgUrl in allItem.imgUrls" :src="imgUrl" onclick="window.open(this.src);">
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="lease">
+				<div class="marketItem" v-for="allItem in allItems" v-show="(allItem.type=='lease')?true:false">
+					<p>
+						{{allItem.description}}
+					</p>
+					<div class="imgGroup">
+						<img v-for="imgUrl in allItem.imgUrls" :src="imgUrl" onclick="window.open(this.src);">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script>
+	var vm = new Vue({
+		el: '#mainContent',
+		data: {
+			allItems: []
+		},
+		mounted: function () {
+			this.$nextTick(function () {
+				vm.getList();
+			})
+		},
+		methods: {
+			getList: function () {
+				var that = this;
+				this.$http.get("./data/secondHand.json").then(function (res) {
+					that.allItems = res.data.listData;
+				});
+			}
+		}
+	})
+</script>
+
+</html>

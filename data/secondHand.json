@@ -1,0 +1,30 @@
+{
+	"listData": [{
+		"type": "buy",
+		"description": "123456",
+		"imgUrls": [
+			"img/1.jpg",
+			"img/2.jpg",
+			"img/3.jpg",
+			"img/4.jpg"
+		]
+	}, {
+		"type": "lease",
+		"description": "666666",
+		"imgUrls": [
+			"img/1.jpg",
+			"img/2.jpg",
+			"img/3.jpg",
+			"img/4.jpg"
+		]
+	}, {
+		"type": "buy",
+		"description": "7777777",
+		"imgUrls": [
+			"img/1.jpg",
+			"img/2.jpg",
+			"img/3.jpg",
+			"img/4.jpg"
+		]
+	}]
+}
